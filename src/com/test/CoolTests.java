@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 enum CoffeeSize {
+/// adding for fun
 	TALL(12), GRANDE(16), VENTI(20) { // start a code block that defines
 		// the "body" for this constant
 
