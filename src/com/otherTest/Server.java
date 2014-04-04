@@ -14,7 +14,7 @@ public class Server
           serverSocket = new DatagramSocket(9876);
       }
       catch( SocketException e ) {
-          System.out.println("Socket could not be opened");
+          System.out.println("Socket could not be opened" + e);
           System.exit(-1);
       }
    }
