@@ -1,0 +1,71 @@
+##
+##	There are optional and mandatory elements in the schema so 
+##	we need to ensure that the XML that is produced is valid.
+##	Optional elements that contain no data are excluded. Mandatory
+##	elements that contain no data are written as an empty element
+##	but it is up to the CSFMessage class to ensure that if the
+##	element contents are an enumeration, the data conforms to the 
+##	schema.
+##
+## Mandatory
+#if( $msg.getInteractionId() && $msg.getInteractionId().length() > 0 ) 
+			<interactionId>$msg.getInteractionId()</interactionId> 
+#else
+			<interactionId/>
+#end
+## Mandatory
+#if( $msg.getMessageId() && $msg.getMessageId().length() > 0 ) 
+			<messageId>$msg.getMessageId()</messageId>
+#else
+			<messageId/>
+#end
+## Mandatory
+#if( $msg.getClientId() && $msg.getClientId().length() > 0 )
+			<clientId>$msg.getClientId()</clientId>
+#else
+			<clientId/>
+#end
+## Optional
+#if( $msg.getConversationId() && $msg.getConversationId().length() > 0 )
+			<conversationId>$msg.getConversationId()</conversationId>
+#end
+## Mandatory
+#if( $msg.getCreationTime() )
+			<creationTime>$dateFormat.format($msg.getCreationTime())</creationTime>
+#else
+			<creationTime/>
+#end
+##serviceId Optional
+#if( $msg.getServiceId() && $msg.getServiceId().length() > 0 )
+			<serviceId>$msg.getServiceId()</serviceId>
+#end
+##noPerfLog Optional
+##if( $msg.getNoPerfLog() && $msg.getNoPerfLog().length() > 0 )
+			<noPerfLog>$msg.getNoPerfLog()</noPerfLog>
+##end
+##version Optional
+#if( $msg.getVersion() && $msg.getVersion().length() > 0 )
+			<version>$msg.getVersion()</version>
+#end
+## Optional
+#foreach( $author in $msg.getAuthors())
+			<authorId root="$author.getRoot()" 
+					extension="$author.getExtension()" />
+#end
+## Optional
+#foreach( $ref in $msg.getReferenceIds())
+			<referenceId root="$ref.getRoot()"
+				extension="$ref.getExtension()" />
+#end
+			<orgAddressContext>
+## There should be at least one source - not checking
+#foreach( $source in $msg.getSources())		
+				<fromAC root="$source.getRoot()"
+					extension="$source.getExtension()" />
+#end
+## There should be at least one destination - not checking
+#foreach( $dest in $msg.getDestinations())	
+				<toAC root="$dest.getRoot()"
+					extension="$dest.getExtension()" />
+#end
+			</orgAddressContext>

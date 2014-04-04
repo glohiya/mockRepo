@@ -1,0 +1,17 @@
+##
+## Specific to RequestMessage
+##
+## Optional
+#if( $msg.getRequestState() && $msg.getRequestState().length() > 0 )
+			<requestState>
+				$msg.getRequestState()
+			</requestState>
+#end
+## Optional - though will set to default value
+			<doLR>$msg.getDoLR()</doLR>
+## Optional - though will set to default value
+			<doRBAC>$msg.getDoRBAC()</doRBAC>
+## Optional - though will set to default value
+			<doSealedEnvelopePatient>$msg.getDoSealedEnvelopePatient()</doSealedEnvelopePatient>
+## Optional - though will set to default value
+			<doSealedEnvelopeClinician>$msg.getDoSealedEnvelopeClinician()</doSealedEnvelopeClinician>

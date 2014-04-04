@@ -1,0 +1,8 @@
+##
+##	Add the BatchManifest
+##
+#parse ("resource/formatters/CSF/BatchManifest.vm")
+##
+##	Add the Service Payload
+##
+#parse ("resource/formatters/CSF/ServicePayload.vm")		

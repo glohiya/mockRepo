@@ -1,0 +1,7 @@
+##
+##	Adds the batch manifest
+##
+
+#if( ($msg.getBatchManifestPayload()) && ($msg.getBatchManifestPayload().length() > 0))
+		$msg.getBatchManifestPayload()
+#end

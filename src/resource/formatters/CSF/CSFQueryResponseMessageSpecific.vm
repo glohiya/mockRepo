@@ -1,0 +1,14 @@
+##
+##	Specific to QueryResponseMessage
+##
+##
+##	Inherits data from CSFResponseMessage
+##
+#parse ("resource/formatters/CSF/CSFResponseMessageSpecific.vm")
+
+## Mandatory
+#if ( $msg.getRefToPayloadId() && $msg.getRefToPayloadId().length() > 0 )
+			<refToPayloadId>$msg.getRefToPayloadId()</refToPayloadId>
+#else
+			<refToPayloadId/>
+#end

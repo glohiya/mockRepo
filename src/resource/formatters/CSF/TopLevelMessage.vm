@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+##
+##	Start the SOAP Envelope including the namespaces
+##
+
+<soap:Envelope xmlns:hl7="urn:hl7-org:v3" 
+	xmlns:soap="http://www.w3.org/2001/12/soap-envelope" 
+	xmlns:nasp="http://spine.nhs.uk/spine-servicev1.0" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+##
+##	Start the SOAP Header
+##
+	<soap:Header>
+##
+##	Add the SOAP Header Contents
+##
+#parse ("resource/formatters/CSF/SOAPHeaderContents.vm")
+##
+##	End the SOAP Header
+##
+	</soap:Header>
+##
+##	Start the SOAP Body
+##
+	<soap:Body>
+##
+##	Add the SOAP Body Contents
+##
+#parse ("resource/formatters/CSF/SOAPBodyContents.vm")
+##
+##	End the SOAP Body
+##
+	</soap:Body>
+##
+##	End the SOAP Envelope
+##
+</soap:Envelope>
+
+	

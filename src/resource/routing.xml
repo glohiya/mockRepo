@@ -1,0 +1,859 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 4 U (http://www.xmlspy.com) by ravi (Syntegra) -->
+<!-- routing file for the CSF TestProducer -->
+<routing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="routing.xsd">
+	<applicationClientId>urn:spine:tmsclient:ETP</applicationClientId>
+	<!--routing entry for MIM2.2 confirmLR-->
+	<routing-entry>
+		<routing-key>
+			<interactionId>QUPC_IN010000UK01</interactionId>
+			<clientId>urn:spine:tmsclient:SyncWS</clientId>
+			<clientReference/>
+			<refToInteractionId/>
+			<refToClientId/>
+		</routing-key>
+		<routing-lookup>
+			<transportProtocol>HTTP</transportProtocol>
+			<wrapperFormat>CSF</wrapperFormat>
+			<transportProperties>
+				<property name="Protocol" value="HTTP"/>
+				<property name="Host" value="10.25.56.40"/>
+				<property name="Port" value="59070"/>
+				<property name="Path" value="/ACFAdaptorServlet/syncServlet"/>
+				<property name="DeliveryMode" value="0"/>
+			</transportProperties>
+		</routing-lookup>
+	</routing-entry>
+	<!--routing entry for MIM3.1.10confirmLR-->
+	<routing-entry>
+		<routing-key>
+			<interactionId>QUPC_IN010000UK15</interactionId>
+			<clientId>urn:spine:tmsclient:SyncWS</clientId>
+			<clientReference/>
+			<refToInteractionId/>
+			<refToClientId/>
+		</routing-key>
+		<routing-lookup>
+			<transportProtocol>HTTP</transportProtocol>
+			<wrapperFormat>CSF</wrapperFormat>
+			<transportProperties>
+				<property name="Protocol" value="HTTP"/>
+				<property name="Host" value="10.25.56.40"/>
+				<property name="Port" value="59050"/>
+				<property name="Path" value="/ACFAdaptorServlet/syncServlet"/>
+				<property name="DeliveryMode" value="0"/>
+			</transportProperties>
+		</routing-lookup>
+	</routing-entry>
+	<!--routing entry for MIM4.1.01 PSIS_Event_List_Query-->
+	<routing-entry>
+		<routing-key>
+			<interactionId>QUPC_IN180000UK04</interactionId>
+			<clientId>urn:spine:tmsclient:SyncWS</clientId>
+			<clientReference/>
+			<refToInteractionId/>
+			<refToClientId/>
+		</routing-key>
+		<routing-lookup>
+			<transportProtocol>HTTP</transportProtocol>
+			<wrapperFormat>CSF</wrapperFormat>
+			<transportProperties>
+				<property name="Protocol" value="HTTP"/>
+				<property name="Host" value="10.25.56.40"/>
+				<property name="Port" value="59080"/>
+				<property name="Path" value="/PSISAdaptorServlet/syncServlet"/>
+				<property name="DeliveryMode" value="0"/>
+			</transportProperties>
+		</routing-lookup>
+	</routing-entry>
+	<!--routing entry for MIM4.1.01 PSIS_Event_Query-->
+	<routing-entry>
+		<routing-key>
+			<interactionId>QUPC_IN190000UK04</interactionId>
+			<clientId>urn:spine:tmsclient:SyncWS</clientId>
+			<clientReference/>
+			<refToInteractionId/>
+			<refToClientId/>
+		</routing-key>
+		<routing-lookup>
+			<transportProtocol>HTTP</transportProtocol>
+			<wrapperFormat>CSF</wrapperFormat>
+			<transportProperties>
+				<property name="Protocol" value="HTTP"/>
+				<property name="Host" value="10.25.56.40"/>
+				<property name="Port" value="59080"/>
+				<property name="Path" value="/PSISAdaptorServlet/syncServlet"/>
+				<property name="DeliveryMode" value="0"/>
+			</transportProperties>
+		</routing-lookup>
+	</routing-entry>
+	<!--routing entry for MIM4.1.01 PSIS_Subject_Access_Query-->
+	<routing-entry>
+		<routing-key>
+			<interactionId>QUPC_IN120000UK06</interactionId>
+			<clientId>urn:spine:tmsclient:ebXMLIn</clientId>
+			<clientReference/>
+			<refToInteractionId/>
+			<refToClientId/>
+		</routing-key>
+		<routing-lookup>
+			<transportProtocol>HTTP</transportProtocol>
+			<wrapperFormat>CSF</wrapperFormat>
+			<transportProperties>
+				<property name="Protocol" value="HTTP"/>
+				<property name="Host" value="10.25.56.40"/>
+				<property name="Port" value="59070"/>
+				<property name="Path" value="/PSISAdaptorServlet/syncServlet"/>
+				<property name="DeliveryMode" value="1"/>
+				<property name="ResponseProtocol" value="HTTP"/>
+				<property name="ResponseHost" value="10.25.56.40"/>
+				<property name="ResponsePort" value="38087"/>
+				<property name="ResponsePath" value="/ResponseReceiverServlet/test"/>
+			</transportProperties>
+		</routing-lookup>
+	</routing-entry>
+	<!--routing entry for MIM3.1.10 Query LR -->
+	<routing-entry>
+		<routing-key>
+			<interactionId>QUPC_IN020000UK14</interactionId>
+			<clientId>urn:spine:tmsclient:ebXMLIn</clientId>
+			<clientReference/>
+			<refToInteractionId/>
+			<refToClientId/>
+		</routing-key>
+		<routing-lookup>
+			<transportProtocol>HTTP</transportProtocol>
+			<wrapperFormat>CSF</wrapperFormat>
+			<transportProperties>
+				<property name="Protocol" value="HTTP"/>
+				<property name="Host" value="10.25.56.40"/>
+				<property name="Port" value="59040"/>
+				<property name="Path" value="/ACFAdaptorServlet/syncServlet"/>
+				<property name="DeliveryMode" value="1"/>
+				<property name="ResponseProtocol" value="HTTP"/>
+				<property name="ResponseHost" value="10.25.56.40"/>
+				<property name="ResponsePort" value="59092"/>
+				<property name="ResponsePath" value="/ResponseReceiverServlet/test"/>
+			</transportProperties>
+		</routing-lookup>
+	</routing-entry>
+	<!--routing entry for MIM5.1 Query LR -->
+	<routing-entry>
+		<routing-key>
+			<interactionId>QUPC_IN020000UK16</interactionId>
+			<clientId>urn:spine:tmsclient:ebXMLIn</clientId>
+			<clientReference/>
+			<refToInteractionId/>
+			<refToClientId/>
+		</routing-key>
+		<routing-lookup>
+			<transportProtocol>HTTP</transportProtocol>
+			<wrapperFormat>CSF</wrapperFormat>
+			<transportProperties>
+				<property name="Protocol" value="HTTP"/>
+				<property name="Host" value="10.25.56.40"/>
+				<property name="Port" value="59040"/>
+				<property name="Path" value="/ACFAdaptorServlet/syncServlet"/>
+				<property name="DeliveryMode" value="1"/>
+				<property name="ResponseProtocol" value="HTTP"/>
+				<property name="ResponseHost" value="10.25.56.40"/>
+				<property name="ResponsePort" value="38084"/>
+				<property name="ResponsePath" value="/ResponseReceiverServlet/test"/>
+			</transportProperties>
+		</routing-lookup>
+	</routing-entry>
+	<!--routing entry for MIM5.1 Batch Confirm LR -->
+	<routing-entry>
+		<routing-key>
+			<interactionId>QUPC_IN090000UK02</interactionId>
+			<clientId>urn:spine:tmsclient:ebXMLIn</clientId>
+			<clientReference/>
+			<refToInteractionId/>
+			<refToClientId/>
+		</routing-key>
+		<routing-lookup>
+			<transportProtocol>HTTP</transportProtocol>
+			<wrapperFormat>CSF</wrapperFormat>
+			<transportProperties>
+				<property name="Protocol" value="HTTP"/>
+				<property name="Host" value="10.25.56.40"/>
+				<property name="Port" value="59040"/>
+				<property name="Path" value="/ACFAdaptorServlet/syncServlet"/>
+				<property name="DeliveryMode" value="1"/>
+				<property name="ResponseProtocol" value="HTTP"/>
+				<property name="ResponseHost" value="10.25.56.40"/>
+				<property name="ResponsePort" value="38084"/>
+				<property name="ResponsePath" value="/ResponseReceiverServlet/test"/>
+			</transportProperties>
+		</routing-lookup>
+	</routing-entry>
+	<!--routing entry for MIM5.4 Create LR -->
+	<routing-entry>
+		<routing-key>
+			<interactionId>REPC_IN010000UK15</interactionId>
+			<clientId>urn:spine:tmsclient:ebXMLIn</clientId>
+			<clientReference/>
+			<refToInteractionId/>
+			<refToClientId/>
+		</routing-key>
+		<routing-lookup>
+			<transportProtocol>HTTP</transportProtocol>
+			<wrapperFormat>CSF</wrapperFormat>
+			<transportProperties>
+				<property name="Protocol" value="HTTP"/>
+				<property name="Host" value="10.25.56.40"/>
+				<property name="Port" value="59040"/>
+				<property name="Path" value="/ACFAdaptorServlet/syncServlet"/>
+				<property name="DeliveryMode" value="1"/>
+				<property name="ResponseProtocol" value="HTTP"/>
+				<property name="ResponseHost" value="10.25.56.40"/>
+				<property name="ResponsePort" value="38084"/>
+				<property name="ResponsePath" value="/ResponseReceiverServlet/test"/>
+			</transportProperties>
+		</routing-lookup>
+	</routing-entry>
+	<!--routing entry for MIM5.4 Update LR -->
+	<routing-entry>
+		<routing-key>
+			<interactionId>REPC_IN040000UK15</interactionId>
+			<clientId>urn:spine:tmsclient:ebXMLIn</clientId>
+			<clientReference/>
+			<refToInteractionId/>
+			<refToClientId/>
+		</routing-key>
+		<routing-lookup>
+			<transportProtocol>HTTP</transportProtocol>
+			<wrapperFormat>CSF</wrapperFormat>
+			<transportProperties>
+				<property name="Protocol" value="HTTP"/>
+				<property name="Host" value="10.25.56.40"/>
+				<property name="Port" value="59040"/>
+				<property name="Path" value="/ACFAdaptorServlet/syncServlet"/>
+				<property name="DeliveryMode" value="1"/>
+				<property name="ResponseProtocol" value="HTTP"/>
+				<property name="ResponseHost" value="10.25.56.40"/>
+				<property name="ResponsePort" value="38084"/>
+				<property name="ResponsePath" value="/ResponseReceiverServlet/test"/>
+			</transportProperties>
+		</routing-lookup>
+	</routing-entry>
+	<!--routing entry for MIM5.4 Confirm LR -->
+	<routing-entry>
+		<routing-key>
+			<interactionId>QUPC_IN010000UK32</interactionId>
+			<clientId>urn:spine:tmsclient:SyncWS</clientId>
+			<clientReference/>
+			<refToInteractionId/>
+			<refToClientId/>
+		</routing-key>
+		<routing-lookup>
+			<transportProtocol>HTTP</transportProtocol>
+			<wrapperFormat>CSF</wrapperFormat>
+			<transportProperties>
+				<property name="Protocol" value="HTTP"/>
+				<property name="Host" value="10.25.56.40"/>
+				<property name="Port" value="59050"/>
+				<property name="Path" value="/ACFAdaptorServlet/syncServlet"/>
+				<property name="DeliveryMode" value="0"/>
+			</transportProperties>
+		</routing-lookup>
+	</routing-entry>
+	<!--routing entry for MIM5.4 Batch Confirm LR -->
+	<routing-entry>
+		<routing-key>
+			<interactionId>QUPC_IN090000UK03</interactionId>
+			<clientId>urn:spine:tmsclient:ebXMLIn</clientId>
+			<clientReference/>
+			<refToInteractionId/>
+			<refToClientId/>
+		</routing-key>
+		<routing-lookup>
+			<transportProtocol>HTTP</transportProtocol>
+			<wrapperFormat>CSF</wrapperFormat>
+			<transportProperties>
+				<property name="Protocol" value="HTTP"/>
+				<property name="Host" value="10.25.56.40"/>
+				<property name="Port" value="59040"/>
+				<property name="Path" value="/ACFAdaptorServlet/syncServlet"/>
+				<property name="DeliveryMode" value="1"/>
+				<property name="ResponseProtocol" value="HTTP"/>
+				<property name="ResponseHost" value="10.25.56.40"/>
+				<property name="ResponsePort" value="59092"/>
+				<property name="ResponsePath" value="/ResponseReceiverServlet/test"/>
+			</transportProperties>
+		</routing-lookup>
+	</routing-entry>
+	<!--routing entry for MIM5.4 Query LR -->
+	<routing-entry>
+		<routing-key>
+			<interactionId>QUPC_IN020000UK17</interactionId>
+			<clientId>urn:spine:tmsclient:ebXMLIn</clientId>
+			<clientReference/>
+			<refToInteractionId/>
+			<refToClientId/>
+		</routing-key>
+		<routing-lookup>
+			<transportProtocol>HTTP</transportProtocol>
+			<wrapperFormat>CSF</wrapperFormat>
+			<transportProperties>
+				<property name="Protocol" value="HTTP"/>
+				<property name="Host" value="10.25.56.40"/>
+				<property name="Port" value="59040"/>
+				<property name="Path" value="/ACFAdaptorServlet/syncServlet"/>
+				<property name="DeliveryMode" value="1"/>
+				<property name="ResponseProtocol" value="HTTP"/>
+				<property name="ResponseHost" value="10.25.56.40"/>
+				<property name="ResponsePort" value="59092"/>
+				<property name="ResponsePath" value="/ResponseReceiverServlet/test"/>
+			</transportProperties>
+		</routing-lookup>
+	</routing-entry>
+	<!--routing entry for MIM6.2.01 QueryWorkgroup -->
+	<routing-entry>
+		<routing-key>
+			<interactionId>QUPC_IN041234UK01</interactionId>
+			<clientId>urn:spine:tmsclient:ebXMLIn</clientId>
+			<clientReference/>
+			<refToInteractionId/>
+			<refToClientId/>
+		</routing-key>
+		<routing-lookup>
+			<transportProtocol>HTTP</transportProtocol>
+			<wrapperFormat>CSF</wrapperFormat>
+			<transportProperties>
+				<property name="Protocol" value="HTTP"/>
+				<property name="Host" value="10.25.56.40"/>
+				<property name="Port" value="59040"/>
+				<property name="Path" value="/ACFAdaptorServlet/syncServlet"/>
+				<property name="DeliveryMode" value="1"/>
+				<property name="ResponseProtocol" value="HTTP"/>
+				<property name="ResponseHost" value="10.25.56.40"/>
+				<property name="ResponsePort" value="59092"/>
+				<property name="ResponsePath" value="/ResponseReceiverServlet/test"/>
+			</transportProperties>
+		</routing-lookup>
+	</routing-entry>
+	
+	<!-- routing entry for CSA Interaction Create LR -->
+	<routing-entry>
+		<routing-key>
+			<interactionId>REPC_IN010000UK15</interactionId>
+			<clientId>urn:spine:tmsclient:CSA</clientId>
+			<clientReference/>
+			<refToInteractionId/>
+			<refToClientId/>
+		</routing-key>
+		<routing-lookup>
+			<transportProtocol>HTTP</transportProtocol>
+			<wrapperFormat>CSF</wrapperFormat>
+			<transportProperties>
+				<property name="Protocol" value="HTTP"/>
+				<property name="Host" value="10.25.56.40"/>
+				<property name="Port" value="59060"/>
+				<property name="Path" value="/ACFAdaptorServlet/syncServlet"/>
+				<property name="DeliveryMode" value="0"/>
+			</transportProperties>
+		</routing-lookup>
+	</routing-entry>
+	
+	<!--routing entry for CSA MIM5.5 confirmLR-->
+	<routing-entry>
+		<routing-key>
+			<interactionId>QUPC_IN010000UK32</interactionId>
+			<clientId>urn:spine:tmsclient:CSA</clientId>
+			<clientReference/>
+			<refToInteractionId/>
+			<refToClientId/>
+		</routing-key>
+		<routing-lookup>
+			<transportProtocol>HTTP</transportProtocol>
+			<wrapperFormat>CSF</wrapperFormat>
+			<transportProperties>
+				<property name="Protocol" value="HTTP"/>
+				<property name="Host" value="10.25.56.40"/>
+				<property name="Port" value="59060"/>
+				<property name="Path" value="/ACFAdaptorServlet/syncServlet"/>
+				<property name="DeliveryMode" value="0"/>
+			</transportProperties>
+		</routing-lookup>
+	</routing-entry>
+	
+	<!--routing entry for CSA MIM4.1.01 PSIS_Event_List_Query-->
+	<routing-entry>
+		<routing-key>
+			<interactionId>QUPC_IN180000UK04</interactionId>
+			<clientId>urn:spine:tmsclient:CSA</clientId>
+			<clientReference/>
+			<refToInteractionId/>
+			<refToClientId/>
+		</routing-key>
+		<routing-lookup>
+			<transportProtocol>HTTP</transportProtocol>
+			<wrapperFormat>CSF</wrapperFormat>
+			<transportProperties>
+				<property name="Protocol" value="HTTP"/>
+				<property name="Host" value="10.25.56.40"/>
+				<property name="Port" value="59090"/>
+				<property name="Path" value="/PSISAdaptorServlet/syncServlet"/>
+				<property name="DeliveryMode" value="0"/>
+			</transportProperties>
+		</routing-lookup>
+	</routing-entry>
+	<!--routing entry for CSA MIM4.1.01 PSIS_Event_Query-->
+	<routing-entry>
+		<routing-key>
+			<interactionId>QUPC_IN190000UK04</interactionId>
+			<clientId>urn:spine:tmsclient:CSA</clientId>
+			<clientReference/>
+			<refToInteractionId/>
+			<refToClientId/>
+		</routing-key>
+		<routing-lookup>
+			<transportProtocol>HTTP</transportProtocol>
+			<wrapperFormat>CSF</wrapperFormat>
+			<transportProperties>
+				<property name="Protocol" value="HTTP"/>
+				<property name="Host" value="10.25.56.40"/>
+				<property name="Port" value="59090"/>
+				<property name="Path" value="/PSISAdaptorServlet/syncServlet"/>
+				<property name="DeliveryMode" value="0"/>
+			</transportProperties>
+		</routing-lookup>
+	</routing-entry>
+	<!--MIM 6.2.01 CRELIstQuery-->
+	<routing-entry>
+		<routing-key>
+			<interactionId>QUPC_IN160107UK04</interactionId>
+			<clientId>urn:spine:tmsclient:ebXMLIn</clientId>
+			<clientReference/>
+			<refToInteractionId/>
+			<refToClientId/>
+		</routing-key>
+		<routing-lookup>
+			<transportProtocol>HTTP</transportProtocol>
+			<wrapperFormat>CSF</wrapperFormat>
+			<transportProperties>
+				<property name="Protocol" value="HTTP"/>
+				<property name="Host" value="10.25.56.40"/>
+				<property name="Port" value="59070"/>
+				<property name="Path" value="/PSISAdaptorServlet/syncServlet"/>
+				<property name="DeliveryMode" value="1"/>
+				<property name="ResponseProtocol" value="HTTP"/>
+				<property name="ResponseHost" value="10.25.56.40"/>
+				<property name="ResponsePort" value="59092"/>
+				<property name="ResponsePath" value="/ResponseReceiverServlet/test"/>
+			</transportProperties>
+		</routing-lookup>
+	</routing-entry>
+	<!--MIM 6.2.01 DocumentListQUery-->
+	<routing-entry>
+		<routing-key>
+			<interactionId>QUPC_IN160101UK04</interactionId>
+			<clientId>urn:spine:tmsclient:ebXMLIn</clientId>
+			<clientReference/>
+			<refToInteractionId/>
+			<refToClientId/>
+		</routing-key>
+		<routing-lookup>
+			<transportProtocol>HTTP</transportProtocol>
+			<wrapperFormat>CSF</wrapperFormat>
+			<transportProperties>
+				<property name="Protocol" value="HTTP"/>
+				<property name="Host" value="10.25.56.40"/>
+				<property name="Port" value="59070"/>
+				<property name="Path" value="/PSISAdaptorServlet/syncServlet"/>
+				<property name="DeliveryMode" value="1"/>
+				<property name="ResponseProtocol" value="HTTP"/>
+				<property name="ResponseHost" value="10.25.56.40"/>
+				<property name="ResponsePort" value="59092"/>
+				<property name="ResponsePath" value="/ResponseReceiverServlet/test"/>
+			</transportProperties>
+		</routing-lookup>
+	</routing-entry>
+	<!--MIM 6.2.01 DocumentQuery-->
+	<routing-entry>
+		<routing-key>
+			<interactionId>QUPC_IN160103UK04</interactionId>
+			<clientId>urn:spine:tmsclient:ebXMLIn</clientId>
+			<clientReference/>
+			<refToInteractionId/>
+			<refToClientId/>
+		</routing-key>
+		<routing-lookup>
+			<transportProtocol>HTTP</transportProtocol>
+			<wrapperFormat>CSF</wrapperFormat>
+			<transportProperties>
+				<property name="Protocol" value="HTTP"/>
+				<property name="Host" value="10.25.56.40"/>
+				<property name="Port" value="59070"/>
+				<property name="Path" value="/PSISAdaptorServlet/syncServlet"/>
+				<property name="DeliveryMode" value="1"/>
+				<property name="ResponseProtocol" value="HTTP"/>
+				<property name="ResponseHost" value="10.25.56.40"/>
+				<property name="ResponsePort" value="59092"/>
+				<property name="ResponsePath" value="/ResponseReceiverServlet/test"/>
+			</transportProperties>
+		</routing-lookup>
+	</routing-entry>
+	<!--MIM 6.2.01 SynchronisationListQuery-->
+	<routing-entry>
+		<routing-key>
+			<interactionId>QUPC_IN160109UK04</interactionId>
+			<clientId>urn:spine:tmsclient:ebXMLIn</clientId>
+			<clientReference/>
+			<refToInteractionId/>
+			<refToClientId/>
+		</routing-key>
+		<routing-lookup>
+			<transportProtocol>HTTP</transportProtocol>
+			<wrapperFormat>CSF</wrapperFormat>
+			<transportProperties>
+				<property name="Protocol" value="HTTP"/>
+				<property name="Host" value="10.25.56.40"/>
+				<property name="Port" value="59070"/>
+				<property name="Path" value="/PSISAdaptorServlet/syncServlet"/>
+				<property name="DeliveryMode" value="1"/>
+				<property name="ResponseProtocol" value="HTTP"/>
+				<property name="ResponseHost" value="10.25.56.40"/>
+				<property name="ResponsePort" value="59092"/>
+				<property name="ResponsePath" value="/ResponseReceiverServlet/test"/>
+			</transportProperties>
+		</routing-lookup>
+	</routing-entry>
+	<!--routing entry for NonMIM Get Resource Permission-->
+	<routing-entry>
+		<routing-key>
+			<interactionId>GET_RESOURCE_PERMISSIONS_INUK01</interactionId>
+			<clientId>urn:spine:tmsclient:SyncWS</clientId>
+			<clientReference/>
+			<refToInteractionId/>
+			<refToClientId/>
+		</routing-key>
+		<routing-lookup>
+			<transportProtocol>HTTP</transportProtocol>
+			<wrapperFormat>CSF</wrapperFormat>
+			<transportProperties>
+				<property name="Protocol" value="HTTP"/>
+				<property name="Host" value="10.25.56.40"/>
+				<property name="Port" value="59050"/>
+				<property name="Path" value="/ACFAdaptorServlet/syncServlet"/>
+				<property name="DeliveryMode" value="0"/>
+			</transportProperties>
+		</routing-lookup>
+	</routing-entry>
+	<!--routing entry for NonMIM Has Resource Permission-->
+	<routing-entry>
+		<routing-key>
+			<interactionId>HAS_RESOURCE_PERMISSIONS_INUK01</interactionId>
+			<clientId>urn:spine:tmsclient:SyncWS</clientId>
+			<clientReference/>
+			<refToInteractionId/>
+			<refToClientId/>
+		</routing-key>
+		<routing-lookup>
+			<transportProtocol>HTTP</transportProtocol>
+			<wrapperFormat>CSF</wrapperFormat>
+			<transportProperties>
+				<property name="Protocol" value="HTTP"/>
+				<property name="Host" value="10.25.56.40"/>
+				<property name="Port" value="59050"/>
+				<property name="Path" value="/ACFAdaptorServlet/syncServlet"/>
+				<property name="DeliveryMode" value="0"/>
+			</transportProperties>
+		</routing-lookup>
+	</routing-entry>
+	<!--routing entry for NonMIM Set Resource Permission-->
+	<routing-entry>
+		<routing-key>
+			<interactionId>SET_RESOURCE_PERMISSIONS_INUK01</interactionId>
+			<clientId>urn:spine:tmsclient:SyncWS</clientId>
+			<clientReference/>
+			<refToInteractionId/>
+			<refToClientId/>
+		</routing-key>
+		<routing-lookup>
+			<transportProtocol>HTTP</transportProtocol>
+			<wrapperFormat>CSF</wrapperFormat>
+			<transportProperties>
+				<property name="Protocol" value="HTTP"/>
+				<property name="Host" value="10.25.56.40"/>
+				<property name="Port" value="59050"/>
+				<property name="Path" value="/ACFAdaptorServlet/syncServlet"/>
+				<property name="DeliveryMode" value="0"/>
+			</transportProperties>
+		</routing-lookup>
+	</routing-entry>
+	<!--routing entry for DSA AdminDocList MIM 6.2.01-->
+	<routing-entry>
+		<routing-key>
+			<interactionId>QUPC_IN160201UK03</interactionId>
+			<clientId>urn:spine:tmsclient:DSA</clientId>
+			<clientReference/>
+			<refToInteractionId/>
+			<refToClientId/>
+		</routing-key>
+		<routing-lookup>
+			<transportProtocol>HTTP</transportProtocol>
+			<wrapperFormat>CSF</wrapperFormat>
+			<transportProperties>
+				<property name="Protocol" value="HTTP"/>
+				<property name="Host" value="10.25.56.40"/>
+				<property name="Port" value="59080"/>
+				<property name="Path" value="/PSISAdaptorServlet/syncServlet"/>
+				<property name="DeliveryMode" value="0"/>
+			</transportProperties>
+		</routing-lookup>
+	</routing-entry>
+	<!--routing entry for DSA AdminDocQuery MIM 6.2.01-->
+	<routing-entry>
+		<routing-key>
+			<interactionId>QUPC_IN160202UK03</interactionId>
+			<clientId>urn:spine:tmsclient:DSA</clientId>
+			<clientReference/>
+			<refToInteractionId/>
+			<refToClientId/>
+		</routing-key>
+		<routing-lookup>
+			<transportProtocol>HTTP</transportProtocol>
+			<wrapperFormat>CSF</wrapperFormat>
+			<transportProperties>
+				<property name="Protocol" value="HTTP"/>
+				<property name="Host" value="10.25.56.40"/>
+				<property name="Port" value="59080"/>
+				<property name="Path" value="/PSISAdaptorServlet/syncServlet"/>
+				<property name="DeliveryMode" value="0"/>
+			</transportProperties>
+		</routing-lookup>
+	</routing-entry>
+	<!--routing entry for DSA MaintainDQStatus MIM 6.2.01-->
+	<routing-entry>
+		<routing-key>
+			<interactionId>urn:spine:interactionid:maintaindqstatusrequest</interactionId>
+			<clientId>urn:spine:tmsclient:DSA</clientId>
+			<clientReference/>
+			<refToInteractionId/>
+			<refToClientId/>
+		</routing-key>
+		<routing-lookup>
+			<transportProtocol>HTTP</transportProtocol>
+			<wrapperFormat>CSF</wrapperFormat>
+			<transportProperties>
+				<property name="Protocol" value="HTTP"/>
+				<property name="Host" value="10.25.56.40"/>
+				<property name="Port" value="59080"/>
+				<property name="Path" value="/PSISAdaptorServlet/syncServlet"/>
+				<property name="DeliveryMode" value="0"/>
+			</transportProperties>
+		</routing-lookup>
+	</routing-entry>
+	<!--routing entry for DSA CopyDocument MIM 6.2.01-->
+	<routing-entry>
+		<routing-key>
+			<interactionId>urn:spine:interactionid:copydocumentrequest</interactionId>
+			<clientId>urn:spine:tmsclient:DSA</clientId>
+			<clientReference/>
+			<refToInteractionId/>
+			<refToClientId/>
+		</routing-key>
+		<routing-lookup>
+			<transportProtocol>HTTP</transportProtocol>
+			<wrapperFormat>CSF</wrapperFormat>
+			<transportProperties>
+				<property name="Protocol" value="HTTP"/>
+				<property name="Host" value="10.25.56.40"/>
+				<property name="Port" value="59080"/>
+				<property name="Path" value="/PSISAdaptorServlet/syncServlet"/>
+				<property name="DeliveryMode" value="0"/>
+			</transportProperties>
+		</routing-lookup>
+	</routing-entry>
+	<!--routing entry for CSA DocListQuery MIM 6.2.01-->
+	<routing-entry>
+		<routing-key>
+			<interactionId>QUPC_IN160101UK04</interactionId>
+			<clientId>urn:spine:tmsclient:CSA</clientId>
+			<clientReference/>
+			<refToInteractionId/>
+			<refToClientId/>
+		</routing-key>
+		<routing-lookup>
+			<transportProtocol>HTTP</transportProtocol>
+			<wrapperFormat>CSF</wrapperFormat>
+			<transportProperties>
+				<property name="Protocol" value="HTTP"/>
+				<property name="Host" value="10.25.56.40"/>
+				<property name="Port" value="59090"/>
+				<property name="Path" value="/PSISAdaptorServlet/syncServlet"/>
+				<property name="DeliveryMode" value="0"/>
+			</transportProperties>
+		</routing-lookup>
+	</routing-entry>
+	<!--routing entry for CSA DocQuery MIM 6.2.01-->
+	<routing-entry>
+		<routing-key>
+			<interactionId>QUPC_IN160103UK04</interactionId>
+			<clientId>urn:spine:tmsclient:CSA</clientId>
+			<clientReference/>
+			<refToInteractionId/>
+			<refToClientId/>
+		</routing-key>
+		<routing-lookup>
+			<transportProtocol>HTTP</transportProtocol>
+			<wrapperFormat>CSF</wrapperFormat>
+			<transportProperties>
+				<property name="Protocol" value="HTTP"/>
+				<property name="Host" value="10.25.56.40"/>
+				<property name="Port" value="59090"/>
+				<property name="Path" value="/PSISAdaptorServlet/syncServlet"/>
+				<property name="DeliveryMode" value="0"/>
+			</transportProperties>
+		</routing-lookup>
+	</routing-entry>
+	<!--routing entry for CSA UnSeal MIM 6.2.01-->
+	<routing-entry>
+		<routing-key>
+			<interactionId>POCD_IN180005UK01</interactionId>
+			<clientId>urn:spine:tmsclient:CSA</clientId>
+			<clientReference/>
+			<refToInteractionId/>
+			<refToClientId/>
+		</routing-key>
+		<routing-lookup>
+			<transportProtocol>HTTP</transportProtocol>
+			<wrapperFormat>CSF</wrapperFormat>
+			<transportProperties>
+				<property name="Protocol" value="HTTP"/>
+				<property name="Host" value="10.25.56.40"/>
+				<property name="Port" value="59090"/>
+				<property name="Path" value="/PSISAdaptorServlet/syncServlet"/>
+				<property name="DeliveryMode" value="0"/>
+			</transportProperties>
+		</routing-lookup>
+	</routing-entry>
+	<!--routing entry for CSA NullifyRefusalToSeal MIM 6.2.01-->
+	<routing-entry>
+		<routing-key>
+			<interactionId>POCD_IN180002UK04</interactionId>
+			<clientId>urn:spine:tmsclient:CSA</clientId>
+			<clientReference/>
+			<refToInteractionId/>
+			<refToClientId/>
+		</routing-key>
+		<routing-lookup>
+			<transportProtocol>HTTP</transportProtocol>
+			<wrapperFormat>CSF</wrapperFormat>
+			<transportProperties>
+				<property name="Protocol" value="HTTP"/>
+				<property name="Host" value="10.25.56.40"/>
+				<property name="Port" value="59090"/>
+				<property name="Path" value="/PSISAdaptorServlet/syncServlet"/>
+				<property name="DeliveryMode" value="0"/>
+			</transportProperties>
+		</routing-lookup>
+	</routing-entry>
+	<!--routing entry for CSA NullifyUnSeal MIM 6.2.01-->
+	<routing-entry>
+		<routing-key>
+			<interactionId>POCD_IN180006UK01</interactionId>
+			<clientId>urn:spine:tmsclient:CSA</clientId>
+			<clientReference/>
+			<refToInteractionId/>
+			<refToClientId/>
+		</routing-key>
+		<routing-lookup>
+			<transportProtocol>HTTP</transportProtocol>
+			<wrapperFormat>CSF</wrapperFormat>
+			<transportProperties>
+				<property name="Protocol" value="HTTP"/>
+				<property name="Host" value="10.25.56.40"/>
+				<property name="Port" value="59090"/>
+				<property name="Path" value="/PSISAdaptorServlet/syncServlet"/>
+				<property name="DeliveryMode" value="0"/>
+			</transportProperties>
+		</routing-lookup>
+	</routing-entry>
+	<!--routing entry for CSA RefusalToSeal MIM 6.2.01-->
+	<routing-entry>
+		<routing-key>
+			<interactionId>POCD_IN180001UK04</interactionId>
+			<clientId>urn:spine:tmsclient:CSA</clientId>
+			<clientReference/>
+			<refToInteractionId/>
+			<refToClientId/>
+		</routing-key>
+		<routing-lookup>
+			<transportProtocol>HTTP</transportProtocol>
+			<wrapperFormat>CSF</wrapperFormat>
+			<transportProperties>
+				<property name="Protocol" value="HTTP"/>
+				<property name="Host" value="10.25.56.40"/>
+				<property name="Port" value="59090"/>
+				<property name="Path" value="/PSISAdaptorServlet/syncServlet"/>
+				<property name="DeliveryMode" value="0"/>
+			</transportProperties>
+		</routing-lookup>
+	</routing-entry>
+	<!--routing entry for CSA Seal MIM 6.2.01-->
+	<routing-entry>
+		<routing-key>
+			<interactionId>POCD_IN180003UK01</interactionId>
+			<clientId>urn:spine:tmsclient:CSA</clientId>
+			<clientReference/>
+			<refToInteractionId/>
+			<refToClientId/>
+		</routing-key>
+		<routing-lookup>
+			<transportProtocol>HTTP</transportProtocol>
+			<wrapperFormat>CSF</wrapperFormat>
+			<transportProperties>
+				<property name="Protocol" value="HTTP"/>
+				<property name="Host" value="10.25.56.40"/>
+				<property name="Port" value="59090"/>
+				<property name="Path" value="/PSISAdaptorServlet/syncServlet"/>
+				<property name="DeliveryMode" value="0"/>
+			</transportProperties>
+		</routing-lookup>
+	</routing-entry>
+	<!--routing entry for CSA NullifySeal MIM 6.2.01-->
+	<routing-entry>
+		<routing-key>
+			<interactionId>POCD_IN180004UK01</interactionId>
+			<clientId>urn:spine:tmsclient:CSA</clientId>
+			<clientReference/>
+			<refToInteractionId/>
+			<refToClientId/>
+		</routing-key>
+		<routing-lookup>
+			<transportProtocol>HTTP</transportProtocol>
+			<wrapperFormat>CSF</wrapperFormat>
+			<transportProperties>
+				<property name="Protocol" value="HTTP"/>
+				<property name="Host" value="10.25.56.40"/>
+				<property name="Port" value="59090"/>
+				<property name="Path" value="/PSISAdaptorServlet/syncServlet"/>
+				<property name="DeliveryMode" value="0"/>
+			</transportProperties>
+		</routing-lookup>
+	</routing-entry>
+	<!--routing entry for CSA QueryWorkgroup MIM 6.2.01-->
+	<routing-entry>
+		<routing-key>
+			<interactionId>QUPC_IN041234UK01</interactionId>
+			<clientId>urn:spine:tmsclient:CSA</clientId>
+			<clientReference/>
+			<refToInteractionId/>
+			<refToClientId/>
+		</routing-key>
+		<routing-lookup>
+			<transportProtocol>HTTP</transportProtocol>
+			<wrapperFormat>CSF</wrapperFormat>
+			<transportProperties>
+				<property name="Protocol" value="HTTP"/>
+				<property name="Host" value="10.25.56.40"/>
+				<property name="Port" value="59060"/>
+				<property name="Path" value="/ACFAdaptorServlet/syncServlet"/>
+				<property name="DeliveryMode" value="0"/>
+			</transportProperties>
+		</routing-lookup>
+	</routing-entry>
+</routing>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<!--
+ *
+ * DevelopmentLog4j.xml
+ *
+ * This is a template file for developers.
+ * Amend as necessary depending upon your own requirements.
+ *
+-->
+
+<!--
+ *
+ * Configuration file for Log4J
+ * @version   1.0
+ * @author    Dave Jackson
+ *
+-->
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+    <renderer renderedClass="com.syntegra.nhs.nasp.tms.logging.LogEvent"
+              renderingClass="com.syntegra.nhs.nasp.tms.logging.LogEventRenderer"/>
+
+    <!--
+     *
+     * Appender details
+     * The threshold (if defined) within any appender will override the level
+     * defined on the corresponding logger.
+     *
+    -->
+
+    <appender name="ConsoleAppender" class="org.apache.log4j.ConsoleAppender">
+        <param name="Threshold" value="off"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d|%p|%t|%c|%m%n"/>
+        </layout>
+    </appender>
+
+    <!-- Appenders using the TMS logger -->
+   <!-- <appender name="AuditAppender" class="org.apache.log4j.DailyRollingFileAppender"> -->
+        <!--
+         *
+         * Keep a daily log file, each one suffixed with the date,
+         * files will be backed up at midnight every day.
+         * e.g. audit.log.2004-02-29 will be created at midnight on the
+         * 29 February, 2004 and on the 1st March, 2004 logging will be
+         * logged to audit.log
+        -->
+        <!--<param name="DatePattern" value="'.'yyyy-MM-dd" />  -->
+        <!-- Note: use forward slashes within paths -->
+<!--        <param name="File" value="../logs/audit.log" />
+        <param name="Append" value="true" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d|%p|%t|%c|%m%n"/>
+        </layout>
+    </appender>  -->
+
+    <!--<appender name="PerfAppender" class="org.apache.log4j.DailyRollingFileAppender"> -->
+        <!--
+         *
+         * Keep a daily log file, each one suffixed with the date,
+         * files will be backed up at midnight every day.
+         * e.g. performance.log.2004-02-29 will be created at midnight on the
+         * 29 February, 2004 and on the 1st March, 2004 logging will be
+         * logged to performance.log
+        -->
+        <!--<param name="DatePattern" value="'.'yyyy-MM-dd" /> -->
+        <!-- Note: use forward slashes within paths -->
+       <!-- <param name="File" value="../logs/performance.log" />
+        <param name="Append" value="true" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d|%p|%t|%c|%m%n"/>
+        </layout>
+    </appender> -->
+
+    <appender name="DiagAppender" class="org.apache.log4j.DailyRollingFileAppender">
+        <!--
+         *
+         * Keep a daily log file, each one suffixed with the date,
+         * files will be backed up at midnight every day.
+         * e.g. diagnostic.log.2004-02-29 will be created at midnight on the
+         * 29 February, 2004 and on the 1st March, 2004 logging will be
+         * logged to diagnostic.log
+        -->
+        <param name="DatePattern" value="'.'yyyy-MM-dd" />
+        <!-- Note: use forward slashes within paths -->
+        <param name="File" value="../logs/diagnostic.log" />
+        <param name="Append" value="true" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d|%p|%t|%c|%m%n"/>
+        </layout>
+    </appender>
+
+    <!--
+     *
+     * Details of loggers ('Logger's replace - actually extend - 'Category's)
+     * Note: Within loggers, 'level' is synonymous with 'priority'
+     *
+    -->
+
+    <!--
+     * Our specialised loggers are all named:
+     *   <EventType>.<PackageName>
+     * where the EventType is one of:
+     *   AUDIT
+     *   PERFORMANCE
+     *   DIAGNOSTIC
+    -->
+
+    <!-- Base logger for TMS Audit events within TMS -->
+    <!--<logger name="AUDIT.com.syntegra.spine.csf">-->
+        <!-- The only available level for Audit events is AUDIT. -->
+     <!--   <level value="audit" class="com.syntegra.nhs.nasp.tms.logging.AuditLevel"/>
+        <appender-ref ref="AuditAppender"/>
+    </logger>-->
+
+    <!-- Base logger for TMS Performance events within TMS -->
+    <!--<logger name="PERFORMANCE.com.syntegra.spine.csf">
+        <level value="perfMax" class="com.syntegra.nhs.nasp.tms.logging.PerformanceLevel"/>
+        <appender-ref ref="PerfAppender"/>
+    </logger>-->
+
+    <!-- Base logger for TMS Diagnostic events within TMS -->
+    <logger name="DIAGNOSTIC.com.syntegra.spine.csf">
+        <!--
+         * Default diagnostic level for TMS packages (including sub-packages)
+         * will be ERROR
+        -->
+        <level value="debug"/>
+        <appender-ref ref="DiagAppender"/>
+    </logger>
+
+    <!-- Example of setting specific levels within a particular module 'modX' -->
+    <logger name="PERFORMANCE.com.syntegra.nhs.nasp.tms.modX">
+        <level value="perfMax" class="com.syntegra.nhs.nasp.tms.logging.PerformanceLevel"/>
+    </logger>
+
+    <logger name="DIAGNOSTIC.com.syntegra.nhs.nasp.tms.modX">
+        <!--
+         * Set diagnostic level for this package (including sub-packages)
+         * to DEBUG. This will override any parent loggers
+        -->
+        <level value="debug"/>
+    </logger>
+
+    <!--
+     *
+     * Details of default (Root) logger
+     * Note: Would normally have a default level of 'debug'.
+     *
+    -->
+    <root>
+        <!--
+         * Set default to OFF to suppress any logging outside our TMS
+         * packages.
+         * Our TMS specific packages will enable logging as appropriate.
+        -->
+        <level value="off" />
+        <appender-ref ref="ConsoleAppender"/>
+    </root>
+
+    <!-- This is needed by Log4J as it will create logger instances internally. -->
+    <categoryFactory class="com.syntegra.nhs.nasp.tms.logging.EventLoggerFactory"/>
+
+</log4j:configuration>

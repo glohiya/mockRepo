@@ -1,0 +1,12 @@
+##
+##	Add the start tag for this particular message
+##
+#foreach( $interface in $msg.getClass().getInterfaces()) 
+#if( $interface.getName() == "com.syntegra.spine.csf.CSFRequestMessage" )
+		<nasp:requestHeader xmlns="http://spine.nhs.uk/spine-servicev1.0"> 
+#elseif( $interface.getName() == "com.syntegra.spine.csf.CSFResponseMessage" )
+		<nasp:responseHeader xmlns="http://spine.nhs.uk/spine-servicev1.0"> 
+#elseif( $interface.getName() == "com.syntegra.spine.csf.CSFNotification" )
+		<nasp:notificationHeader xmlns="http://spine.nhs.uk/spine-servicev1.0"> 
+#end
+#end
