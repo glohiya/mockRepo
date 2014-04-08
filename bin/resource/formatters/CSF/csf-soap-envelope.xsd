@@ -1,0 +1,31 @@
+<!-- edited with XMLSPY v2004 rel. 4 U (http://www.xmlspy.com) by Tom Foster (British Telecom) -->
+<!-- CSF soap envelope -->
+<xs:schema targetNamespace="http://www.w3.org/2001/12/soap-envelope" xmlns:soap="http://www.w3.org/2001/12/soap-envelope" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:nasp="http://spine.nhs.uk/spine-servicev1.0">
+	<xs:import namespace="http://spine.nhs.uk/spine-servicev1.0" schemaLocation="C:/Projects/MessageRouting/src/resource/csf.xsd"/>
+	<xs:element name="Envelope" type="soap:Envelope"/>
+	<xs:complexType name="Envelope">
+		<xs:sequence>
+			<xs:element ref="soap:Header"/>
+			<xs:element ref="soap:Body"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Header" type="soap:Header"/>
+	<xs:complexType name="Header">
+		<xs:sequence>
+			<xs:choice>
+				<xs:element ref="nasp:notificationHeader"/>
+				<xs:element ref="nasp:requestHeader"/>
+				<xs:element ref="nasp:responseHeader"/>
+				<xs:element ref="nasp:queryResponseHeader"/>
+			</xs:choice>
+			<xs:element ref="nasp:batchHeader" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Body" type="soap:Body"/>
+	<xs:complexType name="Body">
+		<xs:sequence>
+			<xs:element ref="nasp:batchManifest" minOccurs="0"/>
+			<xs:element ref="nasp:servicePayload"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

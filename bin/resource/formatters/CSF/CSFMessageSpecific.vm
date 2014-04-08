@@ -1,0 +1,16 @@
+##
+##	Direct the parse to the appropriate message template
+##
+#foreach( $interface in $msg.getClass().getInterfaces()) 
+#if( $interface.getName() == "com.syntegra.spine.csf.CSFRequestMessage" )
+#parse ("resource/formatters/CSF/CSFRequestMessageSpecific.vm")
+#elseif( $interface.getName() == "com.syntegra.spine.csf.CSFResponseMessage" )
+##if( $msg.getRefToPayloadId() )
+##parse ("resource/formatters/CSF/CSFQueryResponseMessageSpecific.vm")
+##else
+#parse ("resource/formatters/CSF/CSFResponseMessageSpecific.vm")
+##end		
+#elseif( $interface.getName() == "com.syntegra.spine.csf.CSFNotification" )
+#parse ("resource/formatters/CSFs/CSFNotificationMessageSpecific.vm")
+#end
+#end

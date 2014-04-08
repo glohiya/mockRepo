@@ -1,0 +1,21 @@
+##
+##	Add the tag to indicate the start of the message
+##
+#parse ("resource/formatters/CSF/StartMessageTag.vm")
+##
+##	Include the part of the message that is common across request,
+##	response, query response and notification messages
+##
+#parse ("resource/formatters/CSF/CSFMessageCore.vm")
+##
+##	Add the message specific data
+##
+#parse ("resource/formatters/CSF/CSFMessageSpecific.vm")
+##
+##	Add the tag to indicate the end of the message
+##
+#parse ("resource/formatters/CSF/EndMessageTag.vm")
+## 
+##	Add the batch header
+##
+#parse ("resource/formatters/CSF/BatchHeader.vm")

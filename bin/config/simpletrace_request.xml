@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2001/12/soap-envelope" xmlns:nasp="http://spine.nhs.uk/spine-servicev1.0">
+	<soap:Header>
+		<nasp:requestHeader>
+			<nasp:interactionId>QUPA_IN010000UK01</nasp:interactionId>
+			<nasp:messageId>4ee12eb3-f63b-4c9a-a75c-9f80e3124593</nasp:messageId>
+			<nasp:clientId>urn:spine:tmsclient:SyncWS</nasp:clientId>
+			<version>V3NPfIT2.0</version>
+			<nasp:serviceId>urn:nhs:names:services:pds</nasp:serviceId>
+			<nasp:creationTime>200401061130</nasp:creationTime>
+			<nasp:authorId root="Ritesh" extension="Aswaney"/>
+			<nasp:authorId root="Soni" extension="Mutta"/>
+			<nasp:authorId root="" extension=""/>
+			<nasp:authorId root="" extension=""/>
+			<nasp:orgAddressContext>
+				<nasp:fromAC root="2.16.840.1.113883.2.1.3.2.4.10" extension="LSP1-00002"/>
+				<nasp:toAC root="2.16.840.1.113883.2.1.3.2.4.10" extension="SPINE-00001"/>
+			</nasp:orgAddressContext>
+			<nasp:requestState>
+				<ParentPrescription xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 D:\MIM31~1.05\Schemas\PORX_MT132004UK04.xsd"> hello how are you </ParentPrescription>
+			</nasp:requestState>
+		</nasp:requestHeader>
+	</soap:Header>
+	<soap:Body>
+		<nasp:servicePayload>
+			<pdsTraceQuery xmlns="urn:hl7-org:v3" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msg="urn:hl7-org:v3/mif" xmlns:voc="urn:hl7-org:v3/voc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3
+../Schemas/PRPA_MT160101UK12.xsd" classCode="REG" moodCode="RQO">
+				<queryId root="BBBBA01A-A9D1-A411-F824-9F7A00A33757"/>
+				<!--
+		<person.address>
+			<value use="H">
+				<postalCode>EX2 5SE</postalCode>
+				<addressKey>1029384756</addressKey>
+				<streetAddressLine>1111111111111</streetAddressLine>
+				<streetAddressLine>2222222222222</streetAddressLine>
+				<streetAddressLine>3333333333333</streetAddressLine>
+				<streetAddressLine>4444444444444</streetAddressLine>
+				<streetAddressLine>5555555555555</streetAddressLine>
+				<desc>The address description - a Home address</desc>
+			</value>
+			<semanticsText>person.address</semanticsText>
+		</person.address>
+-->
+				<person.administrativeGenderCode>
+					<value code="2"/>
+					<semanticsText>person.administrativeGenderCode</semanticsText>
+				</person.administrativeGenderCode>
+				<person.birthTime>
+					<value value="19780719"/>
+					<semanticsText>person.birthTime</semanticsText>
+				</person.birthTime>
+				<person.deceasedTime>
+					<value value="20031202"/>
+					<semanticsText>person.deceasedTime</semanticsText>
+				</person.deceasedTime>
+				<person.name>
+					<value use="L">
+						<prefix>Mrs</prefix>
+						<suffix>MBE</suffix>
+						<given>Joey</given>
+						<given>Zoe</given>
+						<family>Editestpatient</family>
+					</value>
+					<semanticsText>person.name</semanticsText>
+				</person.name>
+			</pdsTraceQuery>
+		</nasp:servicePayload>
+	</soap:Body>
+</soap:Envelope>

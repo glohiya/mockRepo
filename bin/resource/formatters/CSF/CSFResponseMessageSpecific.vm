@@ -1,0 +1,59 @@
+##
+## Specific to ResponseMessage
+##
+## Optional
+#if( $msg.getRequestState() && $msg.getRequestState().length() > 0 )
+			<requestState>
+				$msg.getRequestState()
+			</requestState>
+#end
+## Mandatory
+#if ( $msg.getRefToMessageId() && $msg.getRefToMessageId().length() > 0 )
+			<refToMessageId>$msg.getRefToMessageId()</refToMessageId>
+#else
+			<refToMessageId/>
+#end
+## Mandatory
+#if ( $msg.getRefToInteractionId() && $msg.getRefToInteractionId().length() > 0 )
+			<refToInteractionId>$msg.getRefToInteractionId()</refToInteractionId>
+#else
+			<refToInteractionId/>
+#end
+## Mandatory
+#if ( $msg.getRefToClientId() && $msg.getRefToClientId().length() > 0 )
+			<refToClientId>$msg.getRefToClientId()</refToClientId>
+#else
+			<refToClientId/>
+#end
+## Mandatory
+#if ( $msg.getMessageCode() && $msg.getMessageCode().length() > 0 )
+			<messageCode>$msg.getMessageCode()</messageCode>
+#else
+			<messageCode/>
+#end
+## Optional
+#if ( $msg.getRefToPayloadId() && $msg.getRefToPayloadId().length() > 0 )
+			<refToPayloadId>$msg.getRefToPayloadId()</refToPayloadId>
+#end
+
+#if ( $msg.getErrors().size() > 0 )
+## At least one error in the errorList
+<errorList>
+#foreach( $error in $msg.getErrors() )
+			<error>
+#if ( $error.getDescription() && $error.getDescription().length() > 0 )
+				<description>$error.getDescription()</description>
+#end    
+#if ( $error.getMessageCodeDetail() && $error.getMessageCodeDetail().length() > 0 )
+				<messageCodeDetail>$error.getMessageCodeDetail()</messageCodeDetail>
+#end
+#if ( $error.getSeverity() && $error.getSeverity().length() > 0 )	
+				<messageSeverity>$error.getSeverity()</messageSeverity>
+#end	
+#if ( $error.getCodeSystem() && $error.getCodeSystem().length() > 0 )
+				<codeSystem>$error.getCodeSystem()</codeSystem>
+#end	
+			</error>	
+#end
+</errorList>
+#end

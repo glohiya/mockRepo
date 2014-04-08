@@ -88,7 +88,7 @@ public class CoolTests {
 		System.out.println("date = "+ date);
 		System.out.println("date + 7 = " + addTimestamp(date,7, DATE));
 		//code added for bug-fix of DEMO-12
-		// Added XXXX comment as per code-review
+		// **Added XXXX comment as per code-review**
 		try{
 			throw new Exception("dummy exception");
 		} catch(Exception ex) {

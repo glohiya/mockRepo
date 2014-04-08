@@ -1,0 +1,16 @@
+##
+##	Add the end tag for this particular message
+##
+#foreach( $interface in $msg.getClass().getInterfaces()) 
+#if( $interface.getName() == "com.syntegra.spine.csf.CSFRequestMessage" )
+		</nasp:requestHeader> 
+#elseif( $interface.getName() == "com.syntegra.spine.csf.CSFResponseMessage" )
+##if( $msg.getRefToPayloadId() && $msg.getRefToPayloadId().length() > 0 )
+##		</nasp:queryResponseHeader> 
+##else
+		</nasp:responseHeader> 
+##end		
+#elseif( $interface.getName() == "com.syntegra.spine.csf.CSFNotification" )
+		</nasp:notificationHeader> 
+#end
+#end

@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 4 U (http://www.xmlspy.com) by Tom Foster (British Telecom) -->
+<xs:schema targetNamespace="http://spine.nhs.uk/spine-servicev1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:nasp="http://spine.nhs.uk/spine-servicev1.0">
+	<!--CSF Version 0.3 14-09-204-->
+	<!--CSF Version 0.4 17-9-2004 - ClientId and refToClientId data type and Root Enumerations updated-->
+	<!--CSF Version 0.5 30-9-2004 - Substitution Groups Removed-->
+	<!--Elements for use in soap:Header-->
+	<xs:element name="serviceHeader" type="nasp:ServiceHeader" abstract="true"/>
+	<xs:complexType name="ServiceHeader">
+		<xs:sequence>
+			<xs:element name="interactionId" type="xs:string"/>
+			<xs:element name="messageId" type="nasp:uuid"/>
+			<xs:element name="clientId" type="nasp:ClientId"/>
+			<xs:element name="conversationId" type="nasp:uuid" minOccurs="0"/>
+			<xs:element name="creationTime" type="nasp:dateTime"/>
+			<xs:element name="authorId" type="nasp:Identifier" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="referenceId" type="nasp:Identifier" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="orgAddressContext" type="nasp:OrgAddressContext"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OrgAddressContext">
+		<xs:sequence>
+			<xs:element name="fromAC" type="nasp:Identifier" maxOccurs="unbounded"/>
+			<xs:element name="toAC" type="nasp:Identifier" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="requestHeader" type="nasp:RequestHeader"/>
+	<xs:complexType name="RequestHeader">
+		<xs:complexContent>
+			<xs:extension base="nasp:ServiceHeader">
+				<xs:sequence>
+					<xs:element name="requestState" type="nasp:RequestState" minOccurs="0"/>
+					<xs:element name="doLR" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="doRBAC" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="doSealedEnvelopePatient" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="doSealedEnvelopeClinician" type="xs:boolean" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="responseHeader" type="nasp:ResponseHeader"/>
+	<xs:complexType name="ResponseHeader">
+		<xs:complexContent>
+			<xs:extension base="nasp:ServiceHeader">
+				<xs:sequence>
+					<xs:element name="requestState" type="nasp:RequestState" minOccurs="0"/>
+					<xs:element name="refToMessageId" type="nasp:uuid"/>
+					<xs:element name="refToInteractionId" type="xs:string"/>
+					<xs:element name="refToClientId" type="nasp:ClientId"/>
+					<xs:element name="messageCode" type="nasp:AcknowledgementType"/>
+					<xs:element name="errorList" type="nasp:ErrorList" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Error">
+		<xs:sequence>
+			<xs:element name="description" type="xs:string"/>
+			<xs:element name="messageCodeDetail" type="nasp:AcknowledgementDetailCode"/>
+			<xs:element name="messageSeverity" type="nasp:AcknowledgementDetailType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ErrorList">
+		<xs:sequence>
+			<xs:element name="error" type="nasp:Error" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RequestState">
+		<xs:sequence>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="queryResponseHeader" type="nasp:QueryResponseHeader"/>
+	<xs:complexType name="QueryResponseHeader">
+		<xs:complexContent>
+			<xs:extension base="nasp:ResponseHeader">
+				<xs:sequence>
+					<xs:element name="queryId" type="nasp:uuid"/>
+					<xs:element name="responseCode" type="nasp:QueryResponse"/>
+					<xs:element name="responseCodeDesc" type="xs:string"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="notificationHeader" type="nasp:NotificationHeader"/>
+	<xs:complexType name="NotificationHeader">
+		<xs:complexContent>
+			<xs:extension base="nasp:ServiceHeader"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="batchHeader" type="nasp:BatchHeader"/>
+	<xs:complexType name="BatchHeader">
+		<xs:sequence>
+			<xs:element name="messageCount" type="xs:int"/>
+			<xs:element name="batchSequenceNumber" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!--Elements for use in soap:Body-->
+	<xs:element name="batchManifest" type="nasp:BatchManifest"/>
+	<xs:complexType name="BatchManifest">
+		<xs:sequence>
+			<xs:element name="item" type="nasp:BatchManifestItem" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BatchManifestItem">
+		<xs:sequence>
+			<xs:element name="referenceId" type="nasp:Identifier" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="servicePayload" type="nasp:ServicePayload"/>
+	<xs:complexType name="ServicePayload">
+		<xs:sequence>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!--Enumerated Types-->
+	<xs:simpleType name="ClientId">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="urn:spine:tmsclient:ebXML"/>
+			<xs:enumeration value="urn:spine:tmsclient:CSA"/>
+			<xs:enumeration value="urn:spine:tmsclient:PDS"/>
+			<xs:enumeration value="urn:spine:tmsclient:LRS"/>
+			<xs:enumeration value="urn:spine:tmsclient:ETP"/>
+			<xs:enumeration value="urn:spine:tmsclient:PSIS"/>
+			<xs:enumeration value="urn:spine:tmsclient:ACF"/>
+			<xs:enumeration value="urn:spine:tmsclient:PPA"/>
+			<xs:enumeration value="urn:spine:tmsclient:TMS"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Root">
+		<xs:annotation>
+			<xs:documentation>OIDs are:
+2.16.840.1.113883.2.1.3.2.4.12 - Interaction Id
+1.2.826.0.1285.0.2.0.67 - Role Profile Id
+1.2.826.0.1285.0.2.0.65 - User Id 
+1.2.826.0.1285.0.2.1.104 - Job Role Id</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="urn:spine:types:accreditedSystemId"/>
+			<xs:enumeration value="urn:spine:types:workstationId"/>
+			<xs:enumeration value="urn:spine:types:lastBatchNumber"/>
+			<xs:enumeration value="urn:spine:types:prescriptionId"/>
+			<xs:enumeration value="urn:spine:types:statusMessage"/>
+			<xs:enumeration value="urn:spine:types:nhsNumber"/>
+			<xs:enumeration value="urn:spine:types:messageId"/>
+			<xs:enumeration value="2.16.840.1.113883.2.1.3.2.4.12"/>
+			<xs:enumeration value="1.2.826.0.1285.0.2.0.67"/>
+			<xs:enumeration value="1.2.826.0.1285.0.2.0.65"/>
+			<xs:enumeration value="1.2.826.0.1285.0.2.1.104"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AcknowledgementType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="AA"/>
+			<xs:enumeration value="AE"/>
+			<xs:enumeration value="AR"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="QueryResponse">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="0"/>
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="10"/>
+			<xs:enumeration value="16"/>
+			<xs:enumeration value="PQR-01"/>
+			<xs:enumeration value="PQR-02"/>
+			<xs:enumeration value="PQR-03"/>
+			<xs:enumeration value="PQR-04"/>
+			<xs:enumeration value="PQR-05"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AcknowledgementDetailCode">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ME"/>
+			<xs:enumeration value="OE"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AcknowledgementDetailType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ER"/>
+			<xs:enumeration value="WG"/>
+			<xs:enumeration value="IF"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--Data Types-->
+	<xs:simpleType name="uuid">
+		<xs:annotation>
+			<xs:documentation/>
+			<xs:appinfo/>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="([1-9][0-9]*)(\.[1-9][0-9]*)*"/>
+			<xs:pattern value="[0-9a-zA-Z]{8}-[0-9a-zA-Z]{4}-[0-9a-zA-Z]{4}-[0-9a-zA-Z]{4}-[0-9a-zA-Z]{12}"/>
+			<xs:pattern value="[A-Za-z][A-Za-z0-9\-]*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="dateTime">
+		<xs:annotation>
+			<xs:documentation>A quantity specifying a point on the axis of natural time. A point
+in time is most often represented as a calendar expression. Based on the equivalent HL7 type</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,8}|([0-9]{9,14}|[0-9]{14,14}\.[0-9]+)([+\-][0-9]{1,4})?"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Identifier">
+		<xs:attribute name="root" type="nasp:Root" use="required"/>
+		<xs:attribute name="extension" type="xs:string" use="required"/>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,11 @@
+##
+##	Adds the service payload
+##
+## Mandatory
+#if ( $msg.getPayload() && $msg.getPayload().length() > 0 )
+		<nasp:servicePayload>
+			$msg.getPayload()
+		</nasp:servicePayload>
+#else
+		<nasp:servicePayload/>
+#end

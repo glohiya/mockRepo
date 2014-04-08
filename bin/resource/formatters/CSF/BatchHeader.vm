@@ -1,0 +1,14 @@
+##
+##	Adds the batch header
+##
+
+#if ( ($msg.getBatchMessageCount() > 0) || ($msg.getBatchSequenceNumber() > 1) )
+		<nasp:batchHeader>
+		#if($msg.getBatchMessageCount() > 0)
+			<messageCount>$msg.getBatchMessageCount()</messageCount>
+		#end
+		#if($msg.getBatchSequenceNumber() > 1)
+			<batchSequenceNumber>$msg.getBatchSequenceNumber()</batchSequenceNumber>
+		#end
+		</nasp:batchHeader>
+#end
