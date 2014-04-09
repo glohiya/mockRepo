@@ -11,6 +11,7 @@ public class Animal {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		// dummy comment for DEMO-12
 		System.out.print(" animals main  ");
 		final byte a;
 		a = 3;
