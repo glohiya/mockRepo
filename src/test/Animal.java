@@ -22,7 +22,8 @@ public class Animal {
 		b5 = null instanceof Object;
 		System.out.println("\n " + " null check= " + b5 + " " + (null instanceof Object));
 		try {
-			System.out.print("\n 1");
+			System.out.print("\n 1"); 
+			System.out.print("\n XX"); // Added extra
 			System.out.print("\n 2");
 		} catch (Exception e) {
 			System.out.println("found = "+e);
